@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IFAC WC 2026 Workshop | Disturbance-Aware Control and Learning</title>
+  <meta name="description" content="IFAC World Congress 2026 Workshop: Disturbance-Aware Control and Learning — from H-infinity disturbance attenuation to observers, MPC, and robotics applications." />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --panel:#101826;
+      --text:#e7eefc;
+      --muted:#b7c3da;
+      --accent:#7aa7ff;
+      --accent2:#6ee7b7;
+      --line:rgba(231,238,252,0.12);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(122,167,255,0.25), transparent 55%),
+                  radial-gradient(900px 500px at 85% 5%, rgba(110,231,183,0.18), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px; margin:0 auto; padding:28px 18px 60px;}
+    header{
+      padding:26px 22px;
+      background: linear-gradient(180deg, rgba(16,24,38,0.95), rgba(16,24,38,0.75));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:6px 10px; border-radius:999px;
+      background:rgba(122,167,255,0.14);
+      border:1px solid rgba(122,167,255,0.35);
+      color:var(--muted);
+      font-size:13px;
+    }
+    h1{
+      margin:14px 0 8px;
+      font-size:34px;
+      line-height:1.18;
+      letter-spacing:-0.02em;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:90ch;
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      background:rgba(231,238,252,0.06);
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+    }
+    section.card{
+      padding:18px 18px 16px;
+      background:rgba(16,24,38,0.82);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    section.card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-0.01em;
+    }
+    .muted{color:var(--muted)}
+    .small{font-size:13.5px}
+    .list{margin:10px 0 0; padding-left:18px}
+    .list li{margin:6px 0}
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 640px){
+      .twoCol{grid-template-columns:1fr}
+    }
+    .axis{
+      padding:12px 12px;
+      background:rgba(231,238,252,0.05);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+    .axis b{color:var(--text)}
+    .schedule{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+    .slot{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap:14px;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(231,238,252,0.05);
+      border:1px solid var(--line);
+    }
+    .time{
+      color:var(--accent2);
+      font-weight:650;
+      font-size:13.5px;
+      letter-spacing:0.02em;
+      white-space:nowrap;
+    }
+    .slot h3{
+      margin:0 0 6px;
+      font-size:15.5px;
+    }
+    .slot p{margin:0; color:var(--muted); font-size:13.5px}
+    details{
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(231,238,252,0.04);
+      border:1px solid var(--line);
+    }
+    summary{
+      cursor:pointer;
+      font-weight:650;
+      color:var(--text);
+    }
+    details .sub{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13.5px;
+    }
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12.5px;
+      opacity:0.9;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:12px;
+      border:1px solid var(--line);
+      background:rgba(231,238,252,0.06);
+      color:var(--muted);
+      margin-left:8px;
+      white-space:nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="kicker">IFAC World Congress 2026 · Workshop Day</div>
+      <h1>Disturbance‑Aware Control and Learning</h1>
+      <p class="subtitle">From H∞ disturbance attenuation to observers, MPC, and robotics applications. A full‑day, discussion‑oriented workshop built around the unifying lens of nominal performance recovery and disturbance‑aware design.</p>
+
+      <div class="chips">
+        <div class="chip"><b>Date</b>&nbsp;Sun, Aug 23, 2026</div>
+        <div class="chip"><b>Format</b>&nbsp;Full‑day workshop</div>
+        <div class="chip"><b>Location</b>&nbsp;IFAC WC 2026 · Busan, Korea</div>
+        <div class="chip"><b>Status</b>&nbsp;Accepted workshop (speaker confirmations in progress)</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Overview</h2>
+        <p class="muted">Modern control systems increasingly operate where disturbances and uncertainty are the norm: wind gusts and actuator limits in aerial robots, contact uncertainty in humanoids, human–robot coupling in exoskeletons, load changes in process systems, and more. As learning components enter feedback loops, the central question becomes:</p>
+        <p class="muted" style="margin:10px 0 0; padding:12px 12px; border-left:3px solid rgba(122,167,255,0.6); background:rgba(122,167,255,0.08); border-radius:12px;">
+          How do we design controllers and learning modules so that closed‑loop behavior remains predictable, certifiable, and high‑performance under disturbances and uncertainty?
+        </p>
+        <ul class="list">
+          <li><span class="muted">Session I (morning):</span> DOB and nominal performance recovery — from origins to modern linear/nonlinear theory.</li>
+          <li><span class="muted">Session II (midday):</span> Five complementary axes of disturbance‑aware control and learning.</li>
+          <li><span class="muted">Session III (afternoon):</span> Robotics and wearable systems as disturbance‑aware case studies.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Organizers</h2>
+        <p class="muted small">Organizer list and contact details can be finalized here.</p>
+        <ul class="list small">
+          <li>Gyunghoon Park <span class="badge">confirmed organizer</span></li>
+          <li>Juhoon Back <span class="badge">confirmed organizer</span></li>
+          <li>Wen‑Hua Chen <span class="badge">confirmed organizer</span></li>
+          <li>Hyuntae Kim <span class="badge">confirmed organizer</span></li>
+        </ul>
+
+        <h2 style="margin-top:14px;">Contact</h2>
+        <p class="muted small">Main contact: <span class="muted">[add email here]</span></p>
+
+        <h2 style="margin-top:14px;">Prerequisites</h2>
+        <p class="muted small">Basic feedback control (stability, frequency response, state‑space). Helpful: H∞ / L2‑gain, MPC basics, observer design.</p>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Five axes of the workshop (concept map)</h2>
+      <div class="twoCol">
+        <div class="axis"><b>Axis 1:</b> Disturbance attenuation control (DAC), H∞‑type design, and performance limits.</div>
+        <div class="axis"><b>Axis 2:</b> Internal model control (IMC) and robust IMC in process/data‑driven settings.</div>
+        <div class="axis"><b>Axis 3:</b> Robust output regulation and the internal model principle (IMP), including PDE settings.</div>
+        <div class="axis"><b>Axis 4:</b> Disturbance‑rejection MPC (robust/economic MPC), constraints, and guarantees.</div>
+        <div class="axis"><b>Axis 5:</b> ADRC/ESO/DOB and high‑gain / sliding‑mode observer viewpoints and variants.</div>
+      </div>
+
+      <details>
+        <summary>How the workshop stays interactive (not “just talks”)</summary>
+        <div class="sub">
+          <ul class="list">
+            <li><b>Guided Q&amp;A</b> after each block: assumptions, guarantees, and failure modes.</li>
+            <li><b>Cross‑axis mini‑panels</b>: same scenario, different tools (e.g., wind + saturation).</li>
+            <li><b>Audience‑driven open‑problems roadmap</b>: we synthesize a short “community roadmap” after the workshop.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Tentative program (time slots)</h2>
+      <p class="muted small">This is a draft timetable (time blocks can be adjusted to the final IFAC WC schedule). Chairs and confirmation status are shown where available.</p>
+
+      <div class="schedule">
+        <div class="slot">
+          <div class="time">09:00–09:15</div>
+          <div>
+            <h3>Opening and objectives</h3>
+            <p>Workshop framing; nominal performance recovery lens; overview of Sessions I–III and Axes 1–5.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">09:15–10:45</div>
+          <div>
+            <h3>Session I (Morning): DOB and nominal performance recovery <span class="badge">Chair: Gyunghoon Park</span></h3>
+            <p>Kouhei Ohnishi (invited): DOB as a tool for recovering nominal performance. · Wen‑Hua Chen (confirmed): DOBC as a unifying framework. · Juhoon Back (invited): the five axes as a conceptual map and preview.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">10:45–11:00</div>
+          <div>
+            <h3>Coffee break</h3>
+            <p>Networking and informal discussion.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">11:00–12:00</div>
+          <div>
+            <h3>Session II‑A (Late morning): structural variants and limitations <span class="badge">Chair: Gyunghoon Park</span></h3>
+            <p>Chanhwa Lee (confirmed): filter‑embedded DOB. · Emre Sariyildiz (confirmed): frequency‑domain trade‑offs and limitations.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">12:00–13:30</div>
+          <div>
+            <h3>Lunch and networking</h3>
+            <p>Encouraged: connect theory to platform constraints for the afternoon sessions.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">13:30–15:00</div>
+          <div>
+            <h3>Session II‑B (Post‑lunch): remedies under sampling and incomplete model knowledge <span class="badge">Chairs: Park &amp; Back</span></h3>
+            <p>Gyunghoon Park (invited): sampled‑data DOB (sampling zeros, discretization). · Youngjun Joo (invited): incomplete high‑frequency information and partial recovery. · Hyuntae Kim (confirmed): IMDOB → SMDOB (structured vs unknown disturbances).</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">15:00–15:25</div>
+          <div>
+            <h3>Coffee break (extended)</h3>
+            <p>Informal discussion: mapping Session II vocabulary to platform constraints in Session III.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">15:25–17:55</div>
+          <div>
+            <h3>Session III (Afternoon): applications in robotics and wearable systems <span class="badge">Chairs: Park &amp; Back</span></h3>
+            <p>Toshiyuki Murakami (invited): disturbance‑aware learning and safety in mechatronic systems. · Seungjae Lee (invited): quadrotor UAVs under wind/fault disturbances. · Sehoon Oh (invited): humanoid locomotion under contact disturbances. · Kyoungchul Kong (invited): exoskeleton control under human–robot uncertainty. · Kiyoshi Ohishi (invited): retrospective / future challenges.</p>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">17:55–18:00</div>
+          <div>
+            <h3>Closing and roadmap</h3>
+            <p>Open‑problems roadmap and takeaways; next steps for community discussion.</p>
+          </div>
+        </div>
+      </div>
+
+      <details>
+        <summary>Optional: add short abstracts under each invited talk (collapsible)</summary>
+        <div class="sub">
+          <p class="muted small">If you want, replace the bullet points below with 3–5 lines per talk once each speaker confirms their title.</p>
+          <ul class="list small">
+            <li><b>Ohnishi:</b> nominal performance recovery via disturbance estimation/cancellation loop.</li>
+            <li><b>Chen:</b> DOBC as a unifying architecture; links among DOB, ADRC/ESO, IMP‑style schemes.</li>
+            <li><b>Back:</b> the five‑axis map and how to compare assumptions/guarantees across methods.</li>
+            <li><b>Lee / Sariyildiz:</b> structural variants and fundamental trade‑offs (bandwidth vs noise vs robustness).</li>
+            <li><b>Park / Joo / Kim:</b> sampling and incomplete model information; “how much recovery is possible”.</li>
+            <li><b>Murakami / Lee / Oh / Kong / Ohishi:</b> platform‑grounded case studies (aerial, humanoid, wearable) + safety‑aware learning.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Speakers (current draft)</h2>
+      <p class="muted small">You can update these statuses anytime as confirmations arrive.</p>
+
+      <div class="twoCol">
+        <div>
+          <h3 style="margin:0 0 8px; font-size:15.5px;">Confirmed</h3>
+          <ul class="list small">
+            <li>Wen‑Hua Chen</li>
+            <li>Chanhwa Lee</li>
+            <li>Emre Sariyildiz</li>
+            <li>Hyuntae Kim</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px; font-size:15.5px;">Invited (pending)</h3>
+          <ul class="list small">
+            <li>Kouhei Ohnishi</li>
+            <li>Juhoon Back</li>
+            <li>Gyunghoon Park</li>
+            <li>Youngjun Joo</li>
+            <li>Toshiyuki Murakami</li>
+            <li>Seungjae Lee</li>
+            <li>Sehoon Oh</li>
+            <li>Kyoungchul Kong</li>
+            <li>Kiyoshi Ohishi</li>
+          </ul>
+        </div>
+      </div>
+
+      <footer>
+        Last updated: <span id="date"></span>. One‑file website (index.html). Replace placeholders (contact email, titles/abstracts, confirmations) anytime.
+      </footer>
+    </section>
+
+  </div>
+
+  <script>
+    (function(){
+      const d = new Date();
+      const fmt = d.toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
+      document.getElementById('date').textContent = fmt;
+    })();
+  </script>
+</body>
+</html>
