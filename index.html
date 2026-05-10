@@ -15,11 +15,13 @@
       --line: rgba(255,255,255,0.12);
       --accent: #7dd3fc;
       --ok: #86efac;
-      --warn: #fcd34d;
       --radius: 16px;
     }
+
     * { box-sizing: border-box; }
+
     html, body { height: 100%; }
+
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -31,9 +33,16 @@
         var(--bg);
       line-height: 1.55;
     }
+
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 18px 60px; }
+
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
     header {
       position: sticky;
       top: 0;
@@ -42,6 +51,7 @@
       background: rgba(11,16,32,0.65);
       border-bottom: 1px solid var(--line);
     }
+
     .nav {
       max-width: 1040px;
       margin: 0 auto;
@@ -51,62 +61,261 @@
       align-items: center;
       justify-content: space-between;
     }
-    .brand { display: flex; flex-direction: column; gap: 2px; min-width: 240px; }
-    .brand .kicker { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
-    .brand .name { font-size: 14px; color: var(--text); font-weight: 650; }
-    .links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
-    .links a { font-size: 13px; color: var(--muted); padding: 6px 10px; border-radius: 999px; border: 1px solid transparent; }
-    .links a:hover { color: var(--text); border-color: var(--line); background: rgba(255,255,255,0.04); text-decoration: none; }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 240px;
+    }
+
+    .brand .kicker {
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .brand .name {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .links a {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .links a:hover {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.04);
+      text-decoration: none;
+    }
+
     .hero { padding: 30px 0 10px; }
-    .hero h1 { margin: 10px 0 8px; font-size: clamp(26px, 4.3vw, 44px); line-height: 1.08; letter-spacing: -0.02em; }
-    .hero h2 { margin: 0 0 14px; font-size: clamp(16px, 2.2vw, 20px); font-weight: 500; color: var(--muted); max-width: 950px; }
-    .pillrow { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 0; }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.04); color: var(--muted); font-size: 13px; }
-    .grid { display: grid; gap: 14px; grid-template-columns: repeat(12, 1fr); margin: 18px 0 8px; }
-    .card { border: 1px solid var(--line); background: var(--card); border-radius: var(--radius); padding: 16px; }
-    .card h3 { margin: 0 0 6px; font-size: 14px; letter-spacing: .02em; color: var(--muted); font-weight: 650; text-transform: uppercase; }
-    .card .big { font-size: 16px; color: var(--text); font-weight: 650; margin: 0 0 4px; }
-    .card .small { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .hero h1 {
+      margin: 10px 0 8px;
+      font-size: clamp(26px, 4.3vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h2 {
+      margin: 0 0 14px;
+      font-size: clamp(16px, 2.2vw, 20px);
+      font-weight: 500;
+      color: var(--muted);
+      max-width: 950px;
+    }
+
+    .pillrow {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(12, 1fr);
+      margin: 18px 0 8px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: .02em;
+      color: var(--muted);
+      font-weight: 650;
+      text-transform: uppercase;
+    }
+
+    .card .big {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 650;
+      margin: 0 0 4px;
+    }
+
+    .card .small {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .span4 { grid-column: span 4; }
     .span6 { grid-column: span 6; }
     .span12 { grid-column: span 12; }
+
     @media (max-width: 900px) {
       .span4, .span6 { grid-column: span 12; }
       .brand { min-width: 0; }
     }
+
     section { margin-top: 22px; }
-    section h2 { font-size: 18px; letter-spacing: -0.01em; margin: 0 0 10px; }
-    section p { margin: 0 0 10px; color: var(--muted); }
-    ul { margin: 10px 0 0 18px; padding: 0; color: var(--muted); }
+
+    section h2 {
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      margin: 0 0 10px;
+    }
+
+    section p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: var(--muted);
+    }
+
     li { margin: 6px 0; }
-    .kpi { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    .kpi .row { display: grid; grid-template-columns: 180px 1fr; gap: 12px; padding: 12px 12px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
-    .kpi .time { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 700; font-size: 13px; }
-    .kpi .desc { color: var(--muted); font-size: 13px; }
-    .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--faint); font-size: 12px; margin-left: 8px; }
-    .status-ok { color: var(--ok); }
-    .status-warn { color: var(--warn); }
-    footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--faint); font-size: 13px; }
-    .note { color: var(--faint); font-size: 13px; }
-    .twoCol { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+
+    .twoCol {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+
     @media (max-width: 900px) {
       .twoCol { grid-template-columns: 1fr; }
+    }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .kpi .row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .kpi .time {
+      font-variant-numeric: tabular-nums;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .kpi .desc {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
       .kpi .row { grid-template-columns: 1fr; }
     }
-    .speaker { padding: 12px 12px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); margin: 10px 0; }
-    .speaker .top { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; }
-    .speaker .who { font-weight: 750; color: var(--text); }
-    .speaker .meta { color: var(--faint); font-size: 13px; }
-    .speaker .blurb { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--faint);
+      font-size: 12px;
+      margin-left: 8px;
+    }
+
+    .status-ok { color: var(--ok); }
+
+    .speaker {
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin: 10px 0;
+    }
+
+    .speaker .top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .speaker .who {
+      font-weight: 750;
+      color: var(--text);
+    }
+
+    .speaker .meta {
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    .speaker .blurb {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .note {
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 13px;
+    }
   </style>
 </head>
+
 <body>
 <header>
   <div class="nav">
     <div class="brand">
-      <div class="kicker">IFAC World Congress 2026 • Workshop (Full-day)</div>
+      <div class="kicker">IFAC World Congress 2026 • Full-day Workshop</div>
       <div class="name">Disturbance Observers and Nominal Performance Recovery</div>
     </div>
+
     <nav class="links" aria-label="Section navigation">
       <a href="#overview">Overview</a>
       <a href="#program">Program</a>
@@ -125,7 +334,8 @@
     <div class="pillrow" role="list">
       <div class="pill" role="listitem">📅 Sunday, August 23, 2026</div>
       <div class="pill" role="listitem">📍 IFAC World Congress 2026, Busan, Republic of Korea</div>
-      <div class="pill" role="listitem">🕘 Full-day • foundations → limitations → platforms</div>
+      <div class="pill" role="listitem">🕗 Full-day • 08:00–18:30</div>
+      <div class="pill" role="listitem">🎤 40-minute invited slots</div>
     </div>
 
     <div class="grid" style="margin-top:16px;">
@@ -134,33 +344,47 @@
         <p class="big">Sunday, August 23, 2026</p>
         <p class="small">Workshop day of IFAC WC 2026</p>
       </div>
+
       <div class="card span4">
         <h3>Location</h3>
         <p class="big">Busan, Republic of Korea</p>
         <p class="small">IFAC World Congress 2026 venue</p>
       </div>
+
       <div class="card span4">
         <h3>Format</h3>
         <p class="big">Full-day workshop</p>
-        <p class="small">Three sessions + discussion</p>
+        <p class="small">Three sessions, 40-minute invited slots, official coffee breaks</p>
       </div>
 
       <div class="card span6">
         <h3>Organizers</h3>
         <p class="small">
-          Hyuntae Kim (University of Oxford) • Gyunghoon Park (University of Seoul) •
-          Wen-Hua Chen (Loughborough University) • Juhoon Back (Sungkyunkwan University)
+          Hyuntae Kim (University of Oxford) •
+          Gyunghoon Park (University of Seoul) •
+          Wen-Hua Chen (The Hong Kong Polytechnic University) •
+          Juhoon Back (Kwangwoon University)
         </p>
       </div>
+
       <div class="card span6" id="contact">
         <h3>Contact</h3>
         <p class="small">
-          Main contact: Hyuntae Kim — <a href="mailto:htkim@cdsl.kr">htkim@cdsl.kr</a>
-          <span class="note">(also: <a href="mailto:hyuntae.kim@eng.ox.ac.uk">hyuntae.kim@eng.ox.ac.uk</a>)</span>
+          Main contact: Hyuntae Kim —
+          <a href="mailto:hyuntae.kim@eng.ox.ac.uk">hyuntae.kim@eng.ox.ac.uk</a>
         </p>
-        <p class="small">Gyunghoon Park — <a href="mailto:gyunghoon.park@uos.ac.kr">gyunghoon.park@uos.ac.kr</a></p>
-        <p class="small">Wen-Hua Chen — <a href="mailto:w.chen@lboro.ac.uk">w.chen@lboro.ac.uk</a></p>
-        <p class="small">Juhoon Back — <a href="mailto:back@skku.edu">back@skku.edu</a></p>
+        <p class="small">
+          Gyunghoon Park —
+          <a href="mailto:gyunghoon.park@uos.ac.kr">gyunghoon.park@uos.ac.kr</a>
+        </p>
+        <p class="small">
+          Wen-Hua Chen —
+          <a href="mailto:wenhua.chen@polyu.edu.hk">wenhua.chen@polyu.edu.hk</a>
+        </p>
+        <p class="small">
+          Juhoon Back —
+          <a href="mailto:backhoon@kw.ac.kr">backhoon@kw.ac.kr</a>
+        </p>
       </div>
     </div>
   </div>
@@ -168,28 +392,36 @@
   <section id="overview" class="card">
     <h2>Workshop overview</h2>
     <p>
-      The workshop centers on <strong>nominal performance recovery</strong>: designing disturbance-observer-based architectures so that a real system behaves like its nominal closed-loop design despite disturbances and model errors.
-      The day bridges (i) foundations of DOB and recovery, (ii) key limitations and modern remedies, and (iii) robotics/mechatronics case studies.
+      The workshop centers on <strong>nominal performance recovery</strong> as a unifying design objective for
+      disturbance observers. The goal is to understand how DOB-based architectures can recover, as much as possible,
+      the nominal closed-loop behavior of a system in the presence of disturbances, uncertainty, and implementation constraints.
+    </p>
+
+    <p>
+      The program bridges foundations and canonical DOB structures, limitations and remedy directions, and
+      robotics/mechatronics case studies where recovery claims must be tested through measurable platform outcomes.
     </p>
 
     <div class="twoCol">
       <div>
         <h2 style="font-size:16px;margin-top:8px;">Why now?</h2>
         <ul>
-          <li>DOB-style loops are widely deployed, but practical limitations (sampling zeros, delays, noise, partial model knowledge) are often under-emphasized.</li>
-          <li>Modern remedies and variants (e.g., filter-embedded DOB, internal-model-embedded DOB, sliding-mode DOB) are now mature enough for a unified workshop treatment.</li>
-          <li>Robotics and mechatronics platforms provide concrete, measurable benchmarks where “recovery” can be tested.</li>
+          <li>Digital implementation is now the default, so sampling zeros, discretization, and finite-rate sensing/actuation often dominate recovery in practice.</li>
+          <li>Model knowledge is often incomplete, especially at high frequencies, motivating partial-recovery viewpoints rather than ideal equivalence claims.</li>
+          <li>Robotics and mechatronics platforms expose practical constraints such as safety, contact, actuator saturation, and sensor noise.</li>
         </ul>
       </div>
+
       <div>
         <h2 style="font-size:16px;margin-top:8px;">Intended audience</h2>
         <ul>
-          <li>Control researchers and practitioners working on observers, robust control, regulation, and disturbance rejection.</li>
-          <li>Robotics/mechatronics engineers needing reliable performance under disturbances.</li>
-          <li>Graduate students seeking a structured map: origins → limitations → remedies → deployments.</li>
+          <li>Researchers and practitioners in DOB, disturbance rejection, robust control, and motion control.</li>
+          <li>Robotics and mechatronics engineers interested in disturbance-aware implementation.</li>
+          <li>Graduate students seeking a coherent map from DOB foundations to modern applications.</li>
         </ul>
         <p class="note" style="margin-top:10px;">
-          Prerequisites: standard feedback control (stability, frequency response, state-space models). Familiarity with sampled-data control or observer design is helpful but not required.
+          Prerequisites: basic feedback control, stability, frequency response/state-space models, and robustness notions.
+          Observer basics and discrete-time implementation issues are helpful but not required.
         </p>
       </div>
     </div>
@@ -197,161 +429,284 @@
 
   <section id="program" class="card">
     <h2>Program structure</h2>
-    <p>The full-day workshop is organized into three sessions:</p>
+    <p>The workshop is organized into three connected sessions:</p>
     <ul>
-      <li><strong>Session I (morning):</strong> Foundations — DOB and nominal performance recovery.</li>
-      <li><strong>Session II (late morning / early afternoon):</strong> Limitations and remedies across five axes.</li>
-      <li><strong>Session III (afternoon):</strong> Robotics/mechatronics case studies and implementation perspectives.</li>
+      <li>
+        <strong>Session I:</strong>
+        foundations, historical development, canonical DOB language, and new research directions for nominal performance recovery.
+      </li>
+      <li>
+        <strong>Session II:</strong>
+        limitations and remedies, including structural/Q-filter design, DODAT-supported analysis and design,
+        sampled-data effects, incomplete-model information, and structured versus unknown disturbances.
+      </li>
+      <li>
+        <strong>Session III:</strong>
+        robotics/mechatronics case studies anchored by implementation and motion-control perspectives.
+      </li>
     </ul>
-    <p class="note" style="margin-top:10px;">
-      The final ordering can be adapted to IFAC WC 2026 time slots. Items marked “pending” are not yet confirmed in the shared PDF.
+
+    <h2 style="font-size:16px;margin-top:18px;">Benchmarking vocabulary</h2>
+    <p>
+      Across the workshop, speakers will refer to a shared vocabulary for DOB-based nominal recovery:
+      recovery bandwidth, noise sensitivity, robustness margins, digital implementation effects, and disturbance-structure assumptions.
     </p>
   </section>
 
   <section id="schedule" class="card">
-    <h2>Detailed schedule (proposed)</h2>
+    <h2>Schedule</h2>
+    <p>
+      The program uses 40-minute invited slots, including clarifying questions and discussion within each talk.
+      Official coffee breaks are 10:20–10:40 and 15:20–15:40.
+    </p>
 
     <div class="kpi">
       <div class="row">
-        <div class="time">09:00–09:15</div>
-        <div class="desc"><strong>Opening overview</strong> (Hyuntae Kim &amp; Gyunghoon Park, 15)</div>
-      </div>
-
-      <div class="row">
-        <div class="time">09:15–10:45</div>
+        <div class="time">08:00–08:10</div>
         <div class="desc">
-          <strong>Session I: Foundations — DOB and Nominal Performance Recovery</strong><br/>
-          • Talk 1 (Kouhei Ohnishi, 30): <em>DOB as a tool for recovering nominal servo performance</em>
-          <span class="tag status-ok">confirmed</span><br/>
-          • Talk 2 (Wen-Hua Chen, 30): <em>DOB architecture and bandwidth-limited nominal recovery</em><br/>
-          • Talk 3 (Juhoon Back, 30): <em>From servo origins to canonical DOB: guarantees, limits, and the benchmarking vocabulary for recovery</em>
+          <strong>Opening</strong><br/>
+          Framing: disturbances and nominal design; nominal performance recovery; overview of Sessions I–III.
         </div>
       </div>
 
       <div class="row">
-        <div class="time">10:45–11:00</div>
-        <div class="desc"><strong>Coffee break</strong> (15)</div>
-      </div>
-
-      <div class="row">
-        <div class="time">11:00–11:30</div>
+        <div class="time">08:10–10:20</div>
         <div class="desc">
-          <strong>Session II-A (pre-lunch):</strong> one invited talk + guided Q&amp;A (30)<br/>
-          • Talk 4 (Chanhwa Lee, 30): <em>Structural remedies: filter-embedded DOB and Q-filter design trade-offs</em>
+          <strong>Session I: DOB origins, canonical recovery language, and research directions</strong><br/>
+          <span class="note">Session chair: Juhoon Back</span><br/><br/>
+
+          • Talk 1 (Kouhei Ohnishi, 40):
+          <em>DOB as a tool for recovering nominal servo performance</em><br/>
+          Servo origins; nominal model/controller; disturbance estimation/cancellation as recovery objective.<br/><br/>
+
+          • Talk 2 (Wen-Hua Chen, 40):
+          <em>DOB architecture and bandwidth-limited nominal recovery</em><br/>
+          Canonical DOB architecture; Q-filter intuition; implementable design choices.<br/><br/>
+
+          • Talk 3 (Hyungbo Shim, 40):
+          <em>Disturbance Observers: A Classical Perspective and a New Direction</em><br/>
+          A classical state-space view of DOB operation with large-bandwidth Q-filters,
+          followed by a new data-driven DOB direction based on unknown input estimation and the behavioral approach.
         </div>
       </div>
 
       <div class="row">
-        <div class="time">11:30–12:00</div>
-        <div class="desc"><strong>Networking / coffee (informal)</strong> (30)</div>
-      </div>
-
-      <div class="row">
-        <div class="time">12:00–13:30</div>
-        <div class="desc"><strong>Lunch</strong> (90)</div>
-      </div>
-
-      <div class="row">
-        <div class="time">13:30–15:00</div>
+        <div class="time">10:20–10:40</div>
         <div class="desc">
-          <strong>Session II-B (post-lunch):</strong> limitations → remedies (90)<br/>
-          • Talk 5 (Gyunghoon Park, 30): <em>Sampled-data DOB: sampling-induced zeros, discretization effects, and implementable recovery</em><br/>
-          • Talk 6 (Youngjun Joo, 30): <em>DOB under incomplete high-frequency information: partial recovery guarantees</em><br/>
-          • Talk 7 (Hyuntae Kim, 30): <em>From IMDOB to SMDOB: structured and unknown disturbances as remedies</em>
+          <strong>Official morning coffee break</strong>
         </div>
       </div>
 
       <div class="row">
-        <div class="time">15:00–15:25</div>
-        <div class="desc"><strong>Coffee break (extended)</strong> (25)</div>
-      </div>
-
-      <div class="row">
-        <div class="time">15:25–17:55</div>
+        <div class="time">10:40–12:40</div>
         <div class="desc">
-          <strong>Session III: Robotics/mechatronics case studies and implementation perspectives</strong><br/>
-          • Talk 8 (Toshiyuki Murakami, 30): <em>Beyond DOB theory: Implementation perspective</em>
-          <span class="tag status-warn">pending</span><br/>
-          • Talk 9 (Seungjae Lee, 30): <em>Applications and extensions of disturbance observer techniques for multirotor aerial robots</em><br/>
-          • Talk 10 (Sehoon Oh, 30): <em>Humanoid whole-body control under contact disturbances: deployment trade-offs</em><br/>
-          • Talk 11 (Kyoungchul Kong, 30): <em>Disturbance-aware control of lower-limb exoskeletons and wearable robots</em><br/>
-          • Talk 12 (Kiyoshi Ohishi, 30): <em>Motion-control takeaway: deployment lessons and recovery metrics that generalize</em>
+          <strong>Session II-A: Structural, computational, and sampled-data remedies</strong><br/>
+          <span class="note">Goal: connect DOB limitations to implementable analysis and design tools.</span><br/><br/>
+
+          • Talk 4 (Chanhwa Lee, 40):
+          <em>Structural remedies: filter-embedded DOB and Q-filter design trade-offs</em><br/>
+          How structural variants reshape recovery–noise–robustness trade-offs; implementable design rules.<br/><br/>
+
+          • Talk 5 (Hamin Chang, 40):
+          <em>DODAT technology for DOB analysis and design</em><br/>
+          A technical introduction to DODAT; computational support for DOB design, performance assessment,
+          and recovery-oriented benchmarking.<br/><br/>
+
+          • Talk 6 (Gyunghoon Park, 40):
+          <em>Sampled-data DOB: sampling-induced zeros, discretization effects, and implementable recovery</em><br/>
+          Sampling-induced limitations and mitigation insights for digital implementation.
         </div>
       </div>
 
       <div class="row">
-        <div class="time">17:55–18:00</div>
-        <div class="desc"><strong>Closing</strong> (5)</div>
+        <div class="time">12:40–14:00</div>
+        <div class="desc">
+          <strong>Lunch break</strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">14:00–15:20</div>
+        <div class="desc">
+          <strong>Session II-B: Incomplete-model and structured-disturbance remedies</strong><br/>
+          <span class="note">Goal: clarify what remains achievable under partial model knowledge and disturbance-structure assumptions.</span><br/><br/>
+
+          • Talk 7 (Youngjun Joo, 40):
+          <em>DOB under incomplete high-frequency information: partial recovery guarantees</em><br/>
+          Unknown relative degree/unmodeled actuator dynamics; robust stability conditions; achievable recovery.<br/><br/>
+
+          • Talk 8 (Hyuntae Kim, 40):
+          <em>From IMDOB to SMDOB: structured vs. unknown disturbances</em><br/>
+          Internal-model embedding for structured disturbances; SMDOB as a complementary direction with explicit implementation trade-offs.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">15:20–15:40</div>
+        <div class="desc">
+          <strong>Official afternoon coffee break</strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">15:40–18:20</div>
+        <div class="desc">
+          <strong>Session III: Robotics/mechatronics applications and implementation perspectives</strong><br/>
+          <span class="note">Goal: connect theory to measurable platform outcomes.</span><br/><br/>
+
+          • Talk 9 (Seungjae Lee, 40):
+          <em>Applications and extensions of disturbance observer techniques for multirotor aerial robots</em><br/><br/>
+
+          • Talk 10 (Sehoon Oh, 40):
+          <em>Humanoid whole-body control under contact disturbances: deployment trade-offs</em><br/><br/>
+
+          • Talk 11 (Kyoungchul Kong, 40):
+          <em>Exoskeleton control under intent variability and uncertain human dynamics</em><br/><br/>
+
+          • Talk 12 (Kiyoshi Ohishi, 40):
+          <em>Motion-control takeaway: deployment lessons and recovery metrics that generalize</em><br/>
+          What to measure and tune so that recovery claims remain comparable across platforms.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">18:20–18:30</div>
+        <div class="desc">
+          <strong>Closing</strong><br/>
+          Open-problems roadmap: sampling zeros, partial model knowledge, disturbance-structure assumptions,
+          DODAT-supported benchmarking, and platform-level validation.
+        </div>
       </div>
     </div>
-
-    <p class="note" style="margin-top:12px;">
-      “Pending” indicates invited speakers not yet confirmed in the shared PDF (updated here: Ohnishi confirmed).
-    </p>
   </section>
 
   <section id="speakers" class="card">
-    <h2>Speakers</h2>
-    <p>Speaker list from the shared PDF (with the local update that Ohnishi is confirmed).</p>
-
-    <h2 style="font-size:16px;margin-top:12px;">Confirmed</h2>
+    <h2>Confirmed speakers</h2>
 
     <div class="speaker">
       <div class="top">
         <div class="who">Kouhei Ohnishi</div>
-        <div class="meta status-ok">Session I • confirmed</div>
+        <div class="meta status-ok">Session I</div>
       </div>
-      <div class="blurb">Foundations of DOB and nominal performance recovery (from concept to practice).</div>
+      <div class="blurb">
+        DOB as a tool for recovering nominal servo performance.
+      </div>
     </div>
-
-    <div class="speaker"><div class="top"><div class="who">Wen-Hua Chen</div><div class="meta">Organizer • Session I</div></div>
-      <div class="blurb">DOB architecture and bandwidth-limited nominal recovery.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Juhoon Back</div><div class="meta">Organizer • Session I</div></div>
-      <div class="blurb">Sampled-data DOB: robust stability and recovery trade-offs.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Chanhwa Lee</div><div class="meta">Session II</div></div>
-      <div class="blurb">Structural remedies: filter-embedded DOB and Q-filter design trade-offs.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Gyunghoon Park</div><div class="meta">Organizer • Session II</div></div>
-      <div class="blurb">Sampled-data DOB: sampling-induced zeros, discretization effects, and implementable recovery.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Youngjun Joo</div><div class="meta">Session II</div></div>
-      <div class="blurb">DOB under incomplete high-frequency information: partial recovery guarantees.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Hyuntae Kim</div><div class="meta">Organizer • Session II</div></div>
-      <div class="blurb">From IMDOB to SMDOB: structured and unknown disturbances as remedies.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Seungjae Lee</div><div class="meta">Session III</div></div>
-      <div class="blurb">Applications and extensions of disturbance observer techniques for multirotor aerial robots.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Sehoon Oh</div><div class="meta">Session III</div></div>
-      <div class="blurb">Humanoid whole-body control under contact disturbances: deployment trade-offs.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Kyoungchul Kong</div><div class="meta">Session III</div></div>
-      <div class="blurb">Disturbance-aware control of lower-limb exoskeletons and wearable robots.</div></div>
-
-    <div class="speaker"><div class="top"><div class="who">Kiyoshi Ohishi</div><div class="meta">Session III</div></div>
-      <div class="blurb">Motion-control takeaway: deployment lessons and recovery metrics that generalize.</div></div>
-
-    <h2 style="font-size:16px;margin-top:16px;">Pending confirmation</h2>
 
     <div class="speaker">
       <div class="top">
-        <div class="who">Toshiyuki Murakami</div>
-        <div class="meta status-warn">Session III • pending</div>
+        <div class="who">Wen-Hua Chen</div>
+        <div class="meta">Organizer • Session I</div>
       </div>
-      <div class="blurb">Beyond DOB theory: Implementation perspective.</div>
+      <div class="blurb">
+        DOB architecture and bandwidth-limited nominal recovery.
+      </div>
     </div>
 
-    <p class="note" style="margin-top:10px;">
-      The proposal notes a half-day fallback: Session I + selected Session II remedies + one application block.
-    </p>
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Hyungbo Shim</div>
+        <div class="meta">Session I</div>
+      </div>
+      <div class="blurb">
+        Disturbance Observers: A Classical Perspective and a New Direction.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Chanhwa Lee</div>
+        <div class="meta">Session II</div>
+      </div>
+      <div class="blurb">
+        Structural remedies: filter-embedded DOB and Q-filter design trade-offs.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Hamin Chang</div>
+        <div class="meta">Session II</div>
+      </div>
+      <div class="blurb">
+        DODAT technology for DOB analysis and design.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Gyunghoon Park</div>
+        <div class="meta">Organizer • Session II</div>
+      </div>
+      <div class="blurb">
+        Sampled-data DOB: sampling-induced zeros, discretization effects, and implementable recovery.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Youngjun Joo</div>
+        <div class="meta">Session II</div>
+      </div>
+      <div class="blurb">
+        DOB under incomplete high-frequency information: partial recovery guarantees.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Hyuntae Kim</div>
+        <div class="meta">Organizer • Session II</div>
+      </div>
+      <div class="blurb">
+        From IMDOB to SMDOB: structured vs. unknown disturbances.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Seungjae Lee</div>
+        <div class="meta">Session III</div>
+      </div>
+      <div class="blurb">
+        Applications and extensions of disturbance observer techniques for multirotor aerial robots.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Sehoon Oh</div>
+        <div class="meta">Session III</div>
+      </div>
+      <div class="blurb">
+        Humanoid whole-body control under contact disturbances: deployment trade-offs.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Kyoungchul Kong</div>
+        <div class="meta">Session III</div>
+      </div>
+      <div class="blurb">
+        Exoskeleton control under intent variability and uncertain human dynamics.
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="top">
+        <div class="who">Kiyoshi Ohishi</div>
+        <div class="meta">Session III</div>
+      </div>
+      <div class="blurb">
+        Motion-control takeaway: deployment lessons and recovery metrics that generalize.
+      </div>
+    </div>
   </section>
 
   <footer>
     <div>
-      Last updated: 2026-04-19 (UTC).<br/>
+      Last updated: 2026-05-10.<br/>
       Single-file static page for GitHub Pages deployment.
     </div>
   </footer>
